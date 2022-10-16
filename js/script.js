@@ -30,20 +30,25 @@ class ExchangeSearch {
         this.query = document.getElementById('search-input').value
         const results = await this.getExchange();
         const container = document.getElementById('list-container')
-        
+        container.innerHTML = "";
+
         const exchangeObject = [];
 
         results.forEach((item) => {
         const exchange = new Exchange(item)
         exchangeObject.push(exchange);
         const list = exchange.createExchangeList()
+        this.removeSpinner()
         container.appendChild(list)
+        
+        
    }) 
     
   }
   createSpinner() {
     const spinner = document.getElementById('spinner')
     spinner.classList.add('spinner-grow', 'spinner-grow-sm')
+
     
 }
   removeSpinner(){
@@ -56,17 +61,14 @@ class ExchangeSearch {
         const url = 'https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?' + 'query=' + this.query + '&limit=' + this.limit + '&exchange=' + this.exchange
         const response = await fetch(url);
         const results = await response.json();
-        this.removeSpinner()
+        
         return results
     }
 catch(e) {
-   return []; 
-
+   return [];
   }
-  
-}
-
  
+}
 }
 
 const exchangeSearch = new ExchangeSearch()
