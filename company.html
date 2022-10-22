@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/style.css" rel="stylesheet" />
+    <title>Company Info</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+    crossorigin="anonymous"
+  />
+    
+<body>
+    
+    <div class="mb-5 m-5 p-5 align-items-center"id="company-container">
+            <div class="mb-5">
+                <div class="" role="status" id="company-spinner">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            <img  id="logo" alt=""></img>
+            <span id="companyName" class="mx-2 text-primary"></span>
+            <span id="symbol" class="text-primary"></span>
+            <a id="website" class="mx-2"></a>
+        </div>
+            <span id="stock-price" class="mt-5"></span>
+            <span id="stock-change-price"></span>
+        <div class="mt-5">
+            <div id="description"></div>
+        </div>
+
+        <div class="mt-5">
+            <div class="" role="status" id="chart-spinner">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            <canvas id="myChart"></canvas>
+          </div>
+          
+    
+    </div>
+
+    <script type="module"src="./js/script.js"></script>
+    <script type="module"src="./js/company.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="./js/chart.js"></script>  
+
+</body>
+</html>
