@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
 #logo {
     width: 100px;
     height: 100px
@@ -24,16 +28,16 @@ h6 {
     text-align: center;
     font-size: 30px;
 }
-/* #marquee {
+.marquee-stock-exchange {
     display: flex;
     direction: row;
-    align-items: flex-end;
+    width: 100%;
     white-space: nowrap; 
-    animation: animate 15s linear infinite;
+    animation: animate 60s linear infinite;
     overflow: hidden; 
 }
  @keyframes animate {
     100% {
         transform: translate(-100%, 0)
     }
-} */
+}

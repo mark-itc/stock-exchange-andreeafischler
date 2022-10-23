@@ -1,7 +1,9 @@
 class Exchange {
     constructor(exchangeObject) {
+        
     this.name   = exchangeObject.name;
     this.symbol = exchangeObject.symbol;
+    
     }
  createExchangeList() {
         const container = document.getElementById('list-container')

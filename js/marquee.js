@@ -1,43 +1,34 @@
   class Marquee {
     constructor() {
-      this.limit = 17
-      this.symbol = ""
-      this.price = ""
-     this.loadAPIList()
+     this.limit = 20
+     this.loadMarquee = this.loadMarquee.bind(this)
+     this.getAPICompanyList = this.getAPICompanyList.bind(this)
     }
    
-    async loadAPIList() {
-        const marqueeUI = document.getElementById('marquee')
+    async loadMarquee() {
         const results = await this.getAPICompanyList();
-        
-       
-        const dataSymbol = results.map((dataSymbol, index) => {
-         
-          return dataSymbol.symbol
-        })
+        this.createMarquee(results)
+        }
 
-        const dataPrice = results.map((dataPrice, index) => { 
-          return dataPrice.price
-        })
-        
-
-        this.symbol = dataSymbol.join(' ')
-        this.price  = dataPrice.join(' ')
-
-        
-         
-        const symbolCompany = document.createElement('span')
-        symbolCompany.setAttribute('id', 'symbol-company')
-        symbolCompany.classList.add('text-dark')
-        
-         
-       
-        console.log('symbol company', symbolCompany)
-
-        
-        marqueeUI.appendChild(symbolCompany);
-        
+    createMarquee(companies) {
+      const marqueeElement = document.getElementById('marquee')
       
+      companies.forEach(company=> {
+      const symboleSpan = document.createElement('span')
+      symboleSpan.innerHTML = company.symbol
+      symboleSpan.style.paddingLeft = '10px'
+
+      const priceSpan = document.createElement('span')
+      priceSpan.innerHTML = `$${company.price}`
+      priceSpan.classList.add('text-success')
+      priceSpan.style.paddingRight = "20px"
+    
+      marqueeElement.appendChild(symboleSpan)
+      marqueeElement.appendChild(priceSpan)
+    
+      
+      })
+      return marqueeElement
     }
 
     async getAPICompanyList() {
@@ -47,7 +38,6 @@
         return results;
   }
 
-
-}
-
-// const marqueeInstance = new Marquee();
+  }
+const marqueeInstance = new Marquee();
+marqueeInstance.loadMarquee();
