@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+#logo {
+    width: 100px;
+    height: 100px
+}
+
+#myChart {
+    width: 400px;
+    height: 400px;
+}
+
+.list-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h6 {
+    font-size: larger;
+    text-align: center;
+    font-size: 30px;
+}
+.marquee-stock-exchange {
+    display: flex;
+    direction: row;
+    width: 100%;
+    white-space: nowrap; 
+    animation: animate 60s linear infinite;
+    overflow: hidden; 
+}
+ @keyframes animate {
+    100% {
+        transform: translate(-100%, 0)
+    }
+}
